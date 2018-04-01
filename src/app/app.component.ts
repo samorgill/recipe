@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  which = 'recipes';
+
+  selectApp(event: string){
+    this.which = event;
+  }
+
 }
