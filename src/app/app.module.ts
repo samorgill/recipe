@@ -12,6 +12,9 @@ import { RecipeComponent } from './recipe/recipes.component';
 
 import {DropdownDirective} from './shared/dropdown.directive';
 import {LogService} from './services/log.service';
+import {RecipeService} from './services/recipe.service';
+import {ShoppingListService} from './services/shopping-list.service';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -26,10 +29,11 @@ import {LogService} from './services/log.service';
     DropdownDirective
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MatSnackBarModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  providers: [LogService],
+  providers: [LogService, RecipeService, ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

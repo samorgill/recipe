@@ -1,6 +1,7 @@
 import {Ingredient} from '../shared/ingredient.model';
 import {EventEmitter, Injectable} from '@angular/core';
 import {LogService} from './log.service';
+import {Recipe} from '../shared/recipe.model';
 
 @Injectable()
 export class ShoppingListService {
@@ -18,9 +19,13 @@ export class ShoppingListService {
     return this.ingredients.slice();
   }
 
-  addIngredient(ingredient: Ingredient){
+  addIngredient(recipe: Recipe){
     this.logService.log(' in service');
-    this.ingredients.push(ingredient);
+
+    for(const ingredient of recipe.ingredients){
+      this.ingredients.push(ingredient);
+    }
+
     this.ingredientsChanged.emit(this.ingredients.slice());
 
   }
