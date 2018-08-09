@@ -13,18 +13,21 @@ export class ShoppingListService {
     new Ingredient('Tomato', 1),
   ];
 
-  constructor(private logService: LogService){}
+  constructor(private logService: LogService) {
+  }
 
-  getIngredients(){
+  getIngredients() {
     return this.ingredients.slice();
   }
 
-  addIngredient(recipe: Recipe){
-    this.logService.log(' in service');
+  addIngredient(ingredient: Ingredient) {
+    this.ingredients.push(ingredient);
+    this.ingredientsChanged.emit(this.ingredients.slice());
+  }
 
-    for(const ingredient of recipe.ingredients){
-      this.ingredients.push(ingredient);
-    }
+  addIngredients(ingredients: Ingredient[]) {
+
+    this.ingredients.push(...ingredients);
 
     this.ingredientsChanged.emit(this.ingredients.slice());
 

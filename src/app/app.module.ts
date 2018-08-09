@@ -15,6 +15,8 @@ import {LogService} from './services/log.service';
 import {RecipeService} from './services/recipe.service';
 import {ShoppingListService} from './services/shopping-list.service';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SnackBarComponent} from './shared/snackbar/snackbar.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +28,16 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     RecipeItemComponent,
     RecipeDetailComponent,
     RecipeComponent,
-    DropdownDirective
+    DropdownDirective,
+    SnackBarComponent
   ],
   imports: [
     BrowserModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    BrowserAnimationsModule
+  ],
+  entryComponents: [
+    SnackBarComponent
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [LogService, RecipeService, ShoppingListService],
